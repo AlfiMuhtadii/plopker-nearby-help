@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { MapPin, Star, ArrowRight, Sparkles, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 
-export const Hero = () => (
+export const Hero = () => {
+  const navigate = useNavigate();
+  return (
   <section className="relative overflow-hidden">
     <div className="absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
     <div className="container mx-auto relative py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
@@ -26,10 +29,10 @@ export const Hero = () => (
           Harga disetujui sebelum pekerjaan dimulai — tanpa kejutan.
         </div>
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <Button variant="accent" size="xl">
+          <Button variant="accent" size="xl" onClick={() => navigate("/request")}>
             Cari Pekerja Sekarang <ArrowRight />
           </Button>
-          <Button variant="soft" size="xl">Daftar Jadi Pekerja</Button>
+          <Button variant="soft" size="xl" onClick={() => navigate("/worker/register")}>Daftar Jadi Pekerja</Button>
         </div>
         <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
           <div className="flex -space-x-2">
@@ -78,4 +81,5 @@ export const Hero = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
