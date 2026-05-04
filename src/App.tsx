@@ -21,7 +21,7 @@ const App = () => (
           <Route path="/request" element={<RequestJob />} />
           <Route path="/worker/register" element={<RegisterWorker />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />2
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

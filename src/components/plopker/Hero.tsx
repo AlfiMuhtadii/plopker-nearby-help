@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { MapPin, Star, ArrowRight, Sparkles, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 
-export const Hero = () => (
+export const Hero = () => {
+  const navigate = useNavigate();
+  return (
   <section className="relative overflow-hidden">
     <div className="absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
     <div className="container mx-auto relative py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
