@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Star, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, Star, ArrowRight, Sparkles, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 
 export const Hero = () => (
   <section className="relative overflow-hidden">
@@ -8,20 +8,24 @@ export const Hero = () => (
       <div>
         <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card border border-border text-xs font-medium shadow-soft">
           <Sparkles className="h-3.5 w-3.5 text-accent" />
-          Bantuan rumah dalam hitungan menit
+          Pekerja lokal terdekat, siap dalam menit
         </span>
         <h1 className="mt-5 text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
-          Cari Bantuan Rumah Tangga Terdekat,{" "}
+          Butuh potong rumput, bersih halaman, atau cuci kendaraan?{" "}
           <span className="relative inline-block">
-            <span className="relative z-10">Cepat & Terpercaya</span>
+            <span className="relative z-10">Tanpa ribet.</span>
             <span className="absolute inset-x-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-accent/60 -z-0 rounded" />
           </span>
         </h1>
         <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-          Plopker menghubungkan Anda dengan pekerja lokal terverifikasi untuk pekerjaan ringan
-          seperti potong rumput, bersih halaman, cuci kendaraan, dan kebutuhan harian lainnya.
+          Plopker mencarikan pekerja lokal terverifikasi di sekitar rumah Anda.
+          Lihat estimasi waktu datang, rating, dan harga — semua jelas sebelum pekerjaan dimulai.
         </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-3">
+        <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium bg-trust/10 text-trust border border-trust/20 px-3 py-2 rounded-full">
+          <ShieldCheck className="h-4 w-4" />
+          Harga disetujui sebelum pekerjaan dimulai — tanpa kejutan.
+        </div>
+        <div className="mt-6 flex flex-col sm:flex-row gap-3">
           <Button variant="accent" size="xl">
             Cari Pekerja Sekarang <ArrowRight />
           </Button>
@@ -51,20 +55,22 @@ export const Hero = () => (
           <div className="mt-5 text-xs text-muted-foreground">Pekerja terdekat</div>
           <div className="mt-3 space-y-3">
             {[
-              { name: "Budi S.", rating: 4.9, dist: "0.6 km", price: "Rp60–80rb" },
-              { name: "Andre P.", rating: 4.8, dist: "1.2 km", price: "Rp65–85rb" },
-              { name: "Rian K.", rating: 4.7, dist: "1.8 km", price: "Rp55–75rb" },
+              { name: "Budi S.", rating: 4.9, dist: "0.6 km", eta: "18 mnt", price: "Rp60–80rb" },
+              { name: "Andre P.", rating: 4.8, dist: "1.2 km", eta: "25 mnt", price: "Rp65–85rb" },
+              { name: "Rian K.", rating: 4.7, dist: "1.8 km", eta: "30 mnt", price: "Rp55–75rb" },
             ].map((w, i) => (
-              <div key={w.name} className="flex items-center gap-3 p-3 rounded-2xl border border-border hover:border-accent transition-colors bg-background/60">
-                <div className="h-11 w-11 rounded-full bg-gradient-to-br from-accent to-trust grid place-items-center font-bold text-foreground/90">{w.name[0]}</div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
+              <div key={w.name} className="flex items-start gap-3 p-3 rounded-2xl border border-border hover:border-accent transition-colors bg-background/60">
+                <div className="h-11 w-11 rounded-full bg-gradient-to-br from-accent to-trust grid place-items-center font-bold text-foreground/90 shrink-0">{w.name[0]}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-semibold text-sm">{w.name}</span>
                     <span className="inline-flex items-center gap-0.5 text-xs"><Star className="h-3 w-3 fill-accent text-accent" /> {w.rating}</span>
+                    <span className="inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded-full bg-trust/15 text-trust font-medium"><BadgeCheck className="h-3 w-3" /> Verified</span>
                   </div>
-                  <div className="text-xs text-muted-foreground flex items-center gap-1"><MapPin className="h-3 w-3" /> {w.dist} • {w.price}</div>
+                  <div className="mt-1 text-xs text-muted-foreground flex items-center gap-1"><MapPin className="h-3 w-3" /> {w.dist} • <Clock className="h-3 w-3 ml-1" /> {w.eta}</div>
+                  <div className="text-xs font-medium mt-0.5">{w.price}</div>
                 </div>
-                {i === 0 && <span className="text-xs px-2 py-1 rounded-full bg-trust/15 text-trust font-medium">Tersedia</span>}
+                {i === 0 && <span className="text-xs px-2 py-1 rounded-full bg-accent/20 text-foreground font-medium self-center">Tersedia</span>}
               </div>
             ))}
           </div>
