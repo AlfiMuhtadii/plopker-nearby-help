@@ -34,13 +34,9 @@ export const Hero = () => {
           </Button>
           <Button variant="soft" size="xl" onClick={() => navigate("/worker/register")}>Daftar Jadi Pekerja</Button>
         </div>
-        <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
-          <div className="flex -space-x-2">
-            {["bg-accent", "bg-trust", "bg-foreground", "bg-muted-foreground"].map((c, i) => (
-              <div key={i} className={`h-8 w-8 rounded-full ${c} border-2 border-background`} />
-            ))}
-          </div>
-          <span><strong className="text-foreground">2.400+</strong> pekerja aktif di sekitar Anda</span>
+        <div className="mt-8 flex items-center gap-3 text-sm text-muted-foreground">
+          <MapPin className="h-4 w-4 text-accent" />
+          <span>Pekerja lokal terdekat berdasarkan area Anda.</span>
         </div>
       </div>
 
