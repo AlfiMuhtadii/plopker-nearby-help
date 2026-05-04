@@ -29,10 +29,10 @@ export const Hero = () => {
           Harga disetujui sebelum pekerjaan dimulai — tanpa kejutan.
         </div>
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <Button variant="accent" size="xl">
+          <Button variant="accent" size="xl" onClick={() => navigate("/request")}>
             Cari Pekerja Sekarang <ArrowRight />
           </Button>
-          <Button variant="soft" size="xl">Daftar Jadi Pekerja</Button>
+          <Button variant="soft" size="xl" onClick={() => navigate("/worker/register")}>Daftar Jadi Pekerja</Button>
         </div>
         <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
           <div className="flex -space-x-2">
@@ -81,4 +81,5 @@ export const Hero = () => {
       </div>
     </div>
   </section>
-);
+  );
+};
