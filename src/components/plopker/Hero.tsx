@@ -1,22 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { MapPin, Star, ArrowRight, Sparkles, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
+import { MapPin, Star, ArrowRight, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 
 export const Hero = () => {
   const navigate = useNavigate();
   return (
   <section className="relative overflow-hidden">
+    <div className="absolute inset-0 bg-radial-fade" />
     <div className="absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+    <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-accent/30 blur-3xl animate-float" />
+    <div className="absolute top-1/3 -right-24 h-80 w-80 rounded-full bg-trust/20 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
     <div className="container mx-auto relative py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
       <div>
         <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card border border-border text-xs font-medium shadow-soft">
-          <Sparkles className="h-3.5 w-3.5 text-accent" />
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-trust opacity-75 animate-pulse-dot" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-trust" />
+          </span>
           Pekerja lokal terdekat, siap dalam menit
         </span>
         <h1 className="mt-5 text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
           Butuh potong rumput, bersih halaman, atau cuci kendaraan?{" "}
           <span className="relative inline-block">
-            <span className="relative z-10">Tanpa ribet.</span>
+            <span className="relative z-10 text-gradient-brand">Tanpa ribet.</span>
             <span className="absolute inset-x-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-accent/60 -z-0 rounded" />
           </span>
         </h1>
