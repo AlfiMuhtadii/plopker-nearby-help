@@ -12,7 +12,7 @@ export const FinalCTA = () => {
         <div className="relative">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">Mulai dari lingkungan terdekat Anda.</h2>
           <p className="mt-4 text-background/70 text-lg max-w-2xl mx-auto">
-            Plopker membantu kebutuhan rumah harian menjadi lebih cepat, jelas, dan terpercaya.
+            Plopker membantu kebutuhan rumah harian menjadi lebih cepat, jelas, dan tanpa drama harga.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Button variant="accent" size="xl" onClick={() => navigate("/request")}>Cari Bantuan Sekarang <ArrowRight /></Button>
