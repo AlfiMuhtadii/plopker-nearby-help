@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { MapPin, Star, ArrowRight, Sparkles, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
+import { MapPin, Star, ArrowRight, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 
 export const Hero = () => {
   const navigate = useNavigate();
