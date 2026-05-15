@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const links = [
   { label: "Cara Kerja", href: "#cara-kerja" },
@@ -13,8 +14,11 @@ const links = [
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 24, mass: 0.2 });
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border/60">
+      <motion.div style={{ scaleX }} className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent origin-left" />
       <nav className="container mx-auto flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2">
           <span className="h-8 w-8 rounded-xl bg-accent grid place-items-center font-bold text-accent-foreground">P</span>

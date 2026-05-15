@@ -1,4 +1,6 @@
 import { Scissors, Leaf, Car, Sprout, Package, Brush } from "lucide-react";
+import { motion } from "framer-motion";
+import { Reveal, StaggerGroup, staggerItem } from "./Reveal";
 
 const services = [
   { icon: Scissors, title: "Potong Rumput", desc: "Halaman rapi tanpa repot bawa alat sendiri." },
@@ -10,22 +12,32 @@ const services = [
 ];
 
 export const ServiceCategories = () => (
-  <section id="layanan" className="container mx-auto py-16 md:py-20">
-    <div className="max-w-2xl">
-      <p className="text-sm font-semibold text-accent uppercase tracking-wider">Layanan</p>
-      <h2 className="mt-2 text-3xl md:text-4xl font-bold">Bantuan untuk pekerjaan harian di sekitar rumah</h2>
-      <p className="mt-3 text-muted-foreground">Pilih kategori sesuai kebutuhan, sistem yang carikan pekerja terdekat.</p>
-    </div>
-    <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  <section id="layanan" className="container mx-auto py-24 md:py-32">
+    <Reveal className="max-w-3xl">
+      <p className="text-sm font-semibold text-accent uppercase tracking-[0.2em]">Layanan</p>
+      <h2 className="mt-3 text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
+        Pekerjaan harian, <span className="text-gradient-brand">selesai hari ini.</span>
+      </h2>
+      <p className="mt-4 text-lg text-muted-foreground">
+        Pilih kategori sesuai kebutuhan, sistem yang carikan pekerja terdekat.
+      </p>
+    </Reveal>
+    <StaggerGroup className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {services.map(({ icon: Icon, title, desc }) => (
-        <div key={title} className="group bg-card rounded-2xl p-6 border border-border hover:border-accent shadow-soft hover:shadow-card transition-all">
+        <motion.div
+          key={title}
+          variants={staggerItem}
+          whileHover={{ y: -6 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="group bg-card rounded-2xl p-7 border border-border hover:border-accent shadow-soft hover:shadow-card transition-colors"
+        >
           <div className="h-12 w-12 rounded-xl bg-secondary grid place-items-center group-hover:bg-accent/20 transition-colors">
             <Icon className="h-6 w-6" />
           </div>
-          <h3 className="mt-4 font-semibold text-lg">{title}</h3>
-          <p className="mt-1.5 text-sm text-muted-foreground">{desc}</p>
-        </div>
+          <h3 className="mt-5 font-semibold text-lg">{title}</h3>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+        </motion.div>
       ))}
-    </div>
+    </StaggerGroup>
   </section>
 );

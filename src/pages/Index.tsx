@@ -13,6 +13,7 @@ import { WorkerSection } from "@/components/plopker/WorkerSection";
 import { FAQ } from "@/components/plopker/FAQ";
 import { FinalCTA } from "@/components/plopker/FinalCTA";
 import { Footer } from "@/components/plopker/Footer";
+import { SectionWrap } from "@/components/plopker/SectionWrap";
 
 const Index = () => {
   return (
@@ -20,17 +21,17 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <StatsBar />
-        <TrustHighlights />
+        <SectionWrap><StatsBar /></SectionWrap>
+        <SectionWrap><TrustHighlights /></SectionWrap>
         <ServiceCategories />
         <HowItWorks />
-        <SmartMatching />
-        <PricingPreview />
-        <AddOnJob />
-        <Safety />
-        <Testimonials />
-        <WorkerSection />
-        <FAQ />
+        <SectionWrap><SmartMatching /></SectionWrap>
+        <SectionWrap><PricingPreview /></SectionWrap>
+        <SectionWrap><AddOnJob /></SectionWrap>
+        <SectionWrap><Safety /></SectionWrap>
+        <SectionWrap><Testimonials /></SectionWrap>
+        <SectionWrap><WorkerSection /></SectionWrap>
+        <SectionWrap><FAQ /></SectionWrap>
         <FinalCTA />
       </main>
       <Footer />
